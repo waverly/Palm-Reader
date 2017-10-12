@@ -1,0 +1,35 @@
+<div class="detail-wrap" *ngIf="data" [@fadeInAnimation]="true">
+  <div class="text">
+    <h3>{{ data["exhibition.title"].value["0"].text }}</h3>
+    <div class="dates">
+      <p> {{ data["exhibition.start-date"].value | date }} - {{ data["exhibition.end-date"].value | date }}</p>
+    </div>
+    <div class="artist-names">
+      <p *ngFor="let name of data['exhibition.artist-names'].value; let i = index">
+        {{ name.artist.value["0"].text }}
+        <!-- <span *ngIf="i < data['exhibition.artist-names'].value.length - 1">/</span> -->
+      </p>
+    </div>
+    <a (click)="scrollToAnchor('press')"><h3>PRESS RELEASE</h3></a>
+  </div>
+  <div class="details">
+    <div class="img-gallery">
+      <div *ngFor="let img of data['exhibition.body'].value['0'].repeat">
+        <img [src]="img.gallery_image.value.main.url" alt="">
+        <p>{{ img.image_captions?.value["0"].text }}</p>
+      </div>
+    </div>
+
+    <a name="press">
+      <div id="press" class="press-release">
+        <p *ngFor="let p of data['exhibition.press-release'].value">
+          {{p.text}}
+        </p>
+      </div>
+    </a>
+
+
+  </div>
+
+
+</div>

@@ -1,0 +1,15 @@
+<div class="artist-wrap">
+  <div class="img-div">
+    <!-- <img [src]=""> -->
+  </div>
+  <div class="artist" *ngFor="let artist of artists">
+    <a [routerLink]="[artist.uid]">
+      <h3
+        (mouseover)="onMouseOver(artist.data['artist.body'].value['0'].repeat['0'].gallery_image.value.main.url)"
+        (mouseout)="onMouseOut(' ')"
+      >
+        {{ artist.data["artist.title"].value["0"].text }}
+      </h3>
+    </a>
+  </div>
+</div>

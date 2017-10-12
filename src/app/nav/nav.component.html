@@ -1,0 +1,26 @@
+<div class="logo">
+    <a [routerLink]="['/']">
+      <h3>Palm Reader Projects</h3>
+    </a>
+</div>
+
+<div class="mobile-menu" (click)="toggleState()">
+  <h3>MENU</h3>
+</div>
+
+<nav class="nav" [ngClass]="{ 'active-nav': isIn }">
+  <ul class="nav-ul">
+    <li class="nav-li">
+      <a class="nav-a a-hover" (click)="toggleState()" [routerLink]="['/artists']">Artists</a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a a-hover"  (click)="toggleState()" [routerLink]="['/exhibitions']">Exhibitions</a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a a-hover" (click)="toggleState()" [routerLink]="['/happenings']"> Happenings</a>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a a-hover" (click)="toggleState()" [routerLink]="['/about']">About</a>
+    </li>
+  </ul>
+</nav>

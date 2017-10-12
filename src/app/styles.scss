@@ -1,0 +1,11 @@
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'flex-mixins';
+@import 'general';
+
+
+h3{
+  font-family: $font-family-h3;
+}

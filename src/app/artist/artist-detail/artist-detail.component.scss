@@ -1,0 +1,107 @@
+@import 'variables';
+@import 'mixins';
+@import 'flex-mixins';
+
+.detail-wrap{
+  // margin-top: $margin-top;
+  width: 100%;
+  height: 100vh;
+  @include display-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  .img-gallery{
+    width: 45%;
+    overflow: scroll;
+    padding-top: 4rem;
+
+    div{
+      text-align: right;
+      img{
+        width: 100%;
+      }
+      p{
+        margin-right: 1rem;
+      }
+    }
+
+  }
+
+  .bio{
+    width: 40%;
+    padding: 0 5rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    p{
+      font-size: 11px;
+      line-height: 18px;
+    }
+
+    .links{
+      text-transform: uppercase;
+      margin-top: 1rem;
+      a{
+        display: inline-block;
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-laptop-small){
+  .detail-wrap{
+    flex-direction: column;
+    height: auto;
+    margin-top: $margin-sides;
+    width: 80%;
+    margin-left: auto;
+
+
+    .img-gallery{
+      width: 100%;
+      order: 1;
+      div{
+        text-align: right;
+        margin-top: 2rem;
+      }
+    }
+
+    .bio{
+      width: 100%;
+      margin-right: auto;
+      text-align: left;
+      padding: 0 4rem;
+      padding-left: 0;
+      order: 2;
+      margin-top: $margin-sides;
+    }
+  }
+}
+
+@media (max-width: $break-phone){
+  .detail-wrap{
+    flex-direction: column;
+    height: auto;
+    margin-top: $margin-sides;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    .img-gallery{
+      width: 100%;
+      order: 1;
+      div{
+        text-align: center;
+        margin-top: 2rem;
+      }
+    }
+
+    .bio{
+      width: 100%;
+      margin-right: auto;
+      text-align: left;
+      padding: 0 1rem;
+      order: 2;
+      margin-top: $margin-sides;
+    }
+  }
+}

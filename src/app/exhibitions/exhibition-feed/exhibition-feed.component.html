@@ -1,0 +1,64 @@
+<ul class="exhibition-wrap" *ngIf="exhibitions" [@fadeInAnimation]="true">
+  <div class="current">
+      <li *ngFor="let c of current">
+        <a [routerLink]="[c.uid]">
+          <div class="text">
+            <h2>CURRENT</h2>
+            <h3>{{ c.data['exhibition.title'].value[0].text}}</h3>
+            <div class="dates">
+              <p> {{ c.data["exhibition.start-date"].value | date }}</p>
+            </div>
+            <div class="artist-names">
+              <span *ngFor="let name of c.data['exhibition.artist-names'].value; let i = index">
+                {{ name.artist.value["0"].text }}
+                <span *ngIf="i < c.data['exhibition.artist-names'].value.length - 1">/</span>
+              </span>
+            </div>
+          </div>
+          <img [src]="c.data['exhibition.body'].value['0'].repeat['0'].gallery_image.value.main.url" >
+        </a>
+      </li>
+  </div>
+
+  <div class="upcoming">
+    <li *ngFor="let f of future">
+      <a [routerLink]="[f.uid]">
+        <div class="text">
+          <h2>FORTHCOMING</h2>
+          <h3>{{ f.data['exhibition.title']?.value[0].text}}</h3>
+          <div class="dates">
+            <p> {{ f.data["exhibition.start-date"]?.value | date  }} - {{ f.data["exhibition.end-date"]?.value | date }}</p>
+          </div>
+          <div class="artist-names">
+            <span *ngFor="let name of f.data['exhibition.artist-names']?.value; let i = index">
+              {{ name.artist.value["0"].text }}
+              <span *ngIf="i < f.data['exhibition.artist-names'].value.length - 1">/</span>
+            </span>
+          </div>
+        </div>
+        <img [src]="f.data['exhibition.body'].value['0'].repeat['0'].gallery_image.value.main.url" >
+      </a>
+    </li>
+  </div>
+
+  <div class="past">
+    <li *ngFor="let p of past">
+        <a [routerLink]="p.uid" >
+          <div class="text">
+            <h2>PAST</h2>
+            <h3>{{ p.data['exhibition.title'].value[0].text}}</h3>
+            <div class="dates">
+              <p> {{ p.data["exhibition.start-date"].value | date  }} - {{ p.data["exhibition.end-date"]?.value | date  }}</p>
+            </div>
+            <div class="artist-names">
+              <span *ngFor="let name of p.data['exhibition.artist-names']?.value; let i = index">
+                {{ name.artist.value["0"].text }}
+                <span *ngIf="i < p.data['exhibition.artist-names'].value.length - 1">/</span>
+              </span>
+            </div>
+          </div>
+          <img [src]="p.data['exhibition.body'].value['0'].repeat['0'].gallery_image.value.main.url" >
+        </a>
+    </li>
+  </div>
+</ul>

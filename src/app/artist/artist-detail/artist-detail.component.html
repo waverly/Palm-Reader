@@ -1,0 +1,18 @@
+<div class="detail-wrap" *ngIf="detail" [@fadeInAnimation]="true">
+  <div class="bio">
+    <p *ngFor="let p of detail.data['artist.description'].value">
+      {{p.text}}
+    </p>
+    <div class="links">
+      <a target="_blank" *ngIf="detail.data['artist.artist-cv']?.value.file.url" href="{{detail.data['artist.artist-cv'].value.file.url}}" >Download CV</a>
+      <a target="_blank" *ngIf="detail.data['artist.artist-press']?.value.file.url" href="{{detail.data['artist.artist-press'].value.file.url}}" >Press</a>
+
+    </div>
+  </div>
+  <div class="img-gallery">
+    <div *ngFor="let img of galleryArray">
+      <img [src]="img.gallery_image.value.main.url" alt="">
+      <p>{{ img.image_captions.value["0"].text }}</p>
+    </div>
+  </div>
+</div>

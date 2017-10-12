@@ -1,0 +1,86 @@
+@import 'variables';
+@import 'mixins';
+@import 'flex-mixins';
+
+.exhibition-wrap{
+  width: 100%;
+  margin-top: $margin-top;
+  margin-bottom: $margin-top;
+  text-align: left;
+  overflow: scroll;
+  h2{
+    font-size: $font-size-h3;
+  }
+
+  div{
+    li{
+      width: 100%;
+      margin-top: $margin-sides;
+      a{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+      }
+
+      &:last-child{
+        margin-bottom: $margin-top;
+      }
+
+      img{
+        display: inline-block;
+        text-align: right;
+        // float: right;
+        width: $desktop-width;
+      }
+      div.text{
+        display: inline-block;
+        text-align: right;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: 2rem;
+        width: 15rem;
+        .artist-names{
+          line-height: 16px;
+        }
+        .exhibition-description{
+          text-align: left;
+          margin-top: 15px;
+          p{
+            line-height: 12px;
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $break-phone){
+  .exhibition-wrap{
+    margin: 80px 0;
+
+    div{
+      li{
+        &:last-child{
+          margin-bottom: 80px;
+        }
+        a{
+          flex-direction: column;
+        }
+        img{
+          order: 1;
+          width: 100%;
+        }
+        div.text{
+          order: 2;
+          text-align: center;
+          width: 100%;
+          padding: 0 1rem;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+
+}

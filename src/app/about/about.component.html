@@ -1,0 +1,33 @@
+<div class="position-wrap">
+  <div class="about-wrap" *ngIf="about">
+    <div class="about-text">
+      <p *ngFor="let a of about['about.about'].value">{{ a.text }}</p>
+    </div>
+
+    <div class="address">
+      <p *ngFor="let p of about['about.address'].value"> {{ p.text }}</p>
+      <p>Tel. {{ about["about.phone-number"].value["0"].text}} </p>
+    </div>
+
+    <div class="open-hours">
+      <p>Gallery Hours</p>
+      <p *ngFor="let p of about['about.open-hours'].value">
+        {{ p.text }}
+      </p>
+    </div>
+
+    <div class="general-contact">
+      <p>General Contact</p>
+      <a href="mailto:{{ about['about.general-contact'].value['0'].text}}">
+        {{ about["about.general-contact"].value["0"].text}}
+      </a>
+    </div>
+
+    <div class="sales-contact">
+      <p>Sales Inquiries</p>
+      <a href="mailto:{{ about['about.sales-inquiries'].value['0'].text}}">
+        {{ about["about.sales-inquiries"].value["0"].text}}
+      </a>
+    </div>
+  </div>
+</div>

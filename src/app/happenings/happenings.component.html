@@ -1,0 +1,20 @@
+<div class="feed-wrap">
+  <div class="happening-wrap">
+    <div class="happening" *ngFor="let happening of happenings">
+      <div
+      (mouseover)="onMouseOver(happening.data['happenings.image'].value.main.url)"
+      (mouseout)="onMouseOut()">
+        <h2>{{ happening.data["happenings.title"].value["0"].text }} </h2>
+        <!-- <h3> {{ happening.data["happenings.subtitle"].value["0"].text }} </h3> -->
+        <p> {{ happening.data["happenings.start-date"].value | date }} </p>
+        <div class="description">
+          <p *ngFor='let p of happening.data["happenings.description"].value'>
+            {{ p.text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="img-div">
+  </div>
+</div>

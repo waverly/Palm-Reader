@@ -1,0 +1,117 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'flex-mixins';
+
+.logo{
+  position: fixed;
+  top: $margin-sides;
+  right: $margin-sides;
+  z-index: 1000;
+
+  a{
+    @include h3();
+  }
+}
+
+.nav{
+  position: fixed;
+  bottom:$margin-sides;
+  left:$margin-sides;
+  width:100px;
+  z-index:5000;
+}
+
+.mobile-menu{
+  display: none;
+  z-index: 5000;
+}
+
+.nav-ul{
+  width:100%;
+  display: block;
+  height: auto;
+  position: relative;
+  .nav-li{
+    width: 100px;
+    position: relative;
+    // display: inline-block;
+    a{
+      width: 100%;
+      display: block;
+      height:100%;
+      font-size: 14px;
+      line-height: 24px;
+      vertical-align: middle;
+      transition: margin 0.5s ease;
+      -webkit-transition: margin 0.5s ease;
+      -moz-transition: margin 0.5s ease;
+      -ms-transition: margin 0.5s ease;
+      -o-transition: margin 0.5s ease;
+      // @include h3();
+      &:hover{
+        margin-left: 5px;
+      }
+      &.nav_active{
+        margin-left: 5px!important;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-phone){
+
+  .active-nav{
+    background-color: red;
+    bottom: 0px !important;
+    -webkit-transition: bottom $transition-medium;
+    transition: bottom $transition-medium ease-in-out;
+  }
+
+  .logo{
+    top: 25px;
+    text-align: center;
+    width: 100%;
+    right: 0;
+  }
+
+  .mobile-menu{
+    display: block;
+    margin-top: auto;
+    width: 100vw;
+    background-color: white;
+    position: fixed;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    bottom: 0;
+    z-index: 5000;
+  }
+
+
+  .nav{
+    display: block;
+    background-color: white;
+    border-top: 1px solid black;
+    height: auto;
+    width: 100vw;
+    text-align: center;
+    padding: 3rem 0;
+    left: 0;
+    margin-bottom: 3rem;
+    bottom: -500px;
+    z-index: 4000;
+    -webkit-transition: bottom $transition-medium;
+    transition: bottom $transition-medium  ease-in-out;
+
+    .nav-ul{
+      margin: 0 auto;
+
+      .nav-li{
+        margin: 0 auto;
+      }
+
+    }
+  }
+
+}
